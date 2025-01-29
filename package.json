@@ -1,0 +1,18 @@
+{
+  "name": "dcmjs-typings",
+  "version": "0.38.0",
+  "description": "Type for dcmjs",
+  "types": "./types/index.d.ts",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dcmjs": "0.38.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "eslint": "^9.19.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.22.0"
+  }
+}
