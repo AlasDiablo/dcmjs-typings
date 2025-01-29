@@ -1,5 +1,6 @@
 export default class TID1500MeasurementReport {
     constructor(TIDIncludeGroups: any);
+
     TIDIncludeGroups: any;
     ImageLibraryContentSequence: any[];
     CurrentRequestedProcedureEvidenceSequence: any[];
@@ -88,7 +89,9 @@ export default class TID1500MeasurementReport {
             PersonName?: undefined;
         })[];
     };
+
     validate(): void;
+
     contentItem(derivationSourceDatasetOrDatasets: any, options?: {}): {
         ConceptNameCodeSequence: {
             CodeValue: string;
@@ -164,5 +167,6 @@ export default class TID1500MeasurementReport {
             PersonName?: undefined;
         })[];
     };
+
     addTID1501MeasurementGroups(derivationSourceDatasets: any, options?: {}): void;
 }

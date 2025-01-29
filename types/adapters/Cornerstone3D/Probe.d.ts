@@ -1,4 +1,5 @@
 export default Probe;
+
 declare class Probe {
     static getMeasurementData(MeasurementGroup: any, sopInstanceUIDToImageIdMap: any, imageToWorldCoords: any, metadata: any): {
         sopInstanceUid: any;
@@ -14,6 +15,7 @@ declare class Probe {
         finding: any;
         findingSites: any[];
     };
+
     static getTID300RepresentationArguments(tool: any, worldToImageCoords: any): {
         points: any;
         trackingIdentifierTextValue: string;
@@ -21,10 +23,12 @@ declare class Probe {
         finding: any;
     };
 }
+
 declare namespace Probe {
-    export { PROBE as toolType };
-    export { PROBE as utilityToolType };
-    export { TID300Point as TID300Representation };
+    export {PROBE as toolType};
+    export {PROBE as utilityToolType};
+    export {TID300Point as TID300Representation};
+
     export function isValidCornerstoneTrackingIdentifier(TrackingIdentifier: any): boolean;
 }
 declare const PROBE: "Probe";

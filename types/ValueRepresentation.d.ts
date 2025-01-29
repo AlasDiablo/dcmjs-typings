@@ -1,6 +1,44 @@
+import {DicomMessage} from "./DicomMessage";
+import {Tag} from "./Tag";
+import {ReadBufferStream} from "./BufferStream";
+
+export type VRType = 'AE' |
+    'AS' |
+    'AT' |
+    'CS' |
+    'DA' |
+    'DS' |
+    'DT' |
+    'FL' |
+    'FD' |
+    'IS' |
+    'LO' |
+    'LT' |
+    'OB' |
+    'OD' |
+    'OF' |
+    'OW' |
+    'PN' |
+    'SH' |
+    'SL' |
+    'SQ' |
+    'SS' |
+    'ST' |
+    'TM' |
+    'UC' |
+    'UI' |
+    'UL' |
+    'UN' |
+    'UR' |
+    'US' |
+    'UT';
+
+
 export class ValueRepresentation {
-    static setDicomMessageClass(dicomMessageClass: any): void;
-    static setTagClass(tagClass: any): void;
+    static setDicomMessageClass(dicomMessageClass: typeof DicomMessage): void;
+
+    static setTagClass(tagClass: typeof Tag): void;
+
     /**
      * Replaces a tag with a Proxy which assigns value accessors based on the vr field
      * of the tag being given to it. If the tag object does not have a vr or vr.type
@@ -9,19 +47,28 @@ export class ValueRepresentation {
      * @returns {any} either the same object if no accessor needed, or a Proxy
      */
     static addTagAccessors(tag: any): any;
+
     static hasValueAccessors(type: any): boolean;
+
     static createByTypeString(type: any): any;
+
     static parseUnknownVr(type: any): ParsedUnknownValue;
-    constructor(type: any);
-    type: any;
+
+    constructor(type: VRType);
+
+    type: VRType;
     multi: boolean;
     _isBinary: boolean;
     _allowMultiple: boolean;
     _isExplicit: boolean;
     _storeRaw: boolean;
+
     isBinary(): boolean;
+
     allowMultiple(): boolean;
+
     isExplicit(): boolean;
+
     /**
      * Flag that specifies whether to store the original unformatted value that is read from the dicom input buffer.
      * The `_rawValue` is used for lossless round trip processing, which preserves data (whitespace, special chars) on write
@@ -30,7 +77,9 @@ export class ValueRepresentation {
      * Example DecimalString: _rawValue: ["-0.000"], Value: [0]
      */
     storeRaw(): boolean;
+
     addValueAccessors(value: any): any;
+
     /**
      * Removes padding byte, if it exists, from the last value in a multiple-value data element.
      *
@@ -44,26 +93,38 @@ export class ValueRepresentation {
      * @returns {string[]} The modified array, with the padding byte potentially removed from the last value.
      */
     dropPadByte(values: string[]): string[];
-    read(stream: any, length: any, syntax: any, readOptions?: {
+
+    read(stream: ReadBufferStream, length: any, syntax: string, readOptions?: {
         forceStoreRaw: boolean;
     }): any;
+
     applyFormatting(value: any): any;
-    readBytes(stream: any, length: any): any;
-    readPaddedAsciiString(stream: any, length: any): any;
-    readPaddedEncodedString(stream: any, length: any): any;
+
+    readBytes(stream: ReadBufferStream, length: any): any;
+
+    readPaddedAsciiString(stream: ReadBufferStream, length: any): any;
+
+    readPaddedEncodedString(stream: ReadBufferStream, length: any): any;
+
     write(stream: any, type: any, ...args: any[]): any[];
+
     writeBytes(stream: any, value: any, lengths: any, writeOptions?: {
         allowInvalidVRLength: boolean;
     }): number;
 }
+
 declare class ParsedUnknownValue extends BinaryRepresentation {
     maxLength: any;
     padByte: number;
     noMultiple: boolean;
+
     read(stream: any, length: any, syntax: any, readOptions: any): any;
 }
+
 declare class BinaryRepresentation extends ValueRepresentation {
     writeBytes(stream: any, value: any, syntax: any, isEncapsulated: any, writeOptions?: {}): number;
-    readBytes(stream: any, length: any): any[];
+
+    readBytes(stream: ReadBufferStream, length: any): Uint8Array[];
 }
+
 export {};

@@ -1,4 +1,5 @@
 export default EllipticalRoi;
+
 declare class EllipticalRoi {
     static getMeasurementData(MeasurementGroup: any): {
         toolType: string;
@@ -36,6 +37,7 @@ declare class EllipticalRoi {
         finding: any;
         findingSites: any[];
     };
+
     static getTID300RepresentationArguments(tool: any): {
         area: any;
         points: {
@@ -47,10 +49,12 @@ declare class EllipticalRoi {
         findingSites: any;
     };
 }
+
 declare namespace EllipticalRoi {
-    export { ELLIPTICALROI as toolType };
-    export { ELLIPTICALROI as utilityToolType };
-    export { TID300Ellipse as TID300Representation };
+    export {ELLIPTICALROI as toolType};
+    export {ELLIPTICALROI as utilityToolType};
+    export {TID300Ellipse as TID300Representation};
+
     export function isValidCornerstoneTrackingIdentifier(TrackingIdentifier: any): boolean;
 }
 declare const ELLIPTICALROI: "EllipticalRoi";

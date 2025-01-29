@@ -11,9 +11,10 @@ export type BrushData = {
     segments: any[];
 };
 declare namespace Segmentation {
-    export { generateSegmentation };
-    export { generateToolState };
+    export {generateSegmentation};
+    export {generateToolState};
 }
+
 /**
  *
  * @typedef {Object} BrushData
@@ -32,6 +33,7 @@ declare namespace Segmentation {
 declare function generateSegmentation(images: object[], brushData: BrushData, options?: {
     includeSliceSpacing: boolean;
 }): type;
+
 /**
  * generateToolState - Given a set of cornrstoneTools imageIds and a Segmentation buffer,
  * derive cornerstoneTools toolState and brush metadata.

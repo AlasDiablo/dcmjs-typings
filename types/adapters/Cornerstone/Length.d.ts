@@ -1,4 +1,5 @@
 export default Length;
+
 declare class Length {
     static getMeasurementData(MeasurementGroup: any): {
         length: any;
@@ -20,6 +21,7 @@ declare class Length {
         finding: any;
         findingSites: any[];
     };
+
     static getTID300RepresentationArguments(tool: any): {
         point1: any;
         point2: any;
@@ -29,10 +31,12 @@ declare class Length {
         findingSites: any;
     };
 }
+
 declare namespace Length {
-    export { LENGTH as toolType };
-    export { LENGTH as utilityToolType };
-    export { TID300Length as TID300Representation };
+    export {LENGTH as toolType};
+    export {LENGTH as utilityToolType};
+    export {TID300Length as TID300Representation};
+
     export function isValidCornerstoneTrackingIdentifier(TrackingIdentifier: any): boolean;
 }
 declare const LENGTH: "Length";

@@ -1,5 +1,6 @@
 export class Comprehensive3DSR {
     constructor(options: any);
+
     SOPClassUID: string;
     SOPInstanceUID: any;
     Modality: string;
@@ -36,4 +37,5 @@ export class Comprehensive3DSR {
     PerformedProcedureCodeSequence: any[];
     ReferencedPerformedProcedureStepSequence: any[];
 }
-import { ContentSequence } from "./valueTypes";
+
+import {ContentSequence} from "./valueTypes";

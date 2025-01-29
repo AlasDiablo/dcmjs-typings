@@ -1,5 +1,5 @@
 export default VTKjs;
 declare namespace VTKjs {
-    export { Segmentation };
+    export {Segmentation};
 }
 import Segmentation from "./Segmentation";

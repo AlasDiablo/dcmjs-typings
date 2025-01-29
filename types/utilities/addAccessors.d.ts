@@ -1,4 +1,5 @@
 export default addAccessors;
+
 /**
  * Add a proxy object for sqZero or the src[0] element if sqZero is unspecified, AND
  * src is an array of length 1.

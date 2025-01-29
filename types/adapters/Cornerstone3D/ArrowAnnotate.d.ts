@@ -1,4 +1,5 @@
 export default ArrowAnnotate;
+
 declare class ArrowAnnotate {
     static getMeasurementData(MeasurementGroup: any, sopInstanceUIDToImageIdMap: any, imageToWorldCoords: any, metadata: any): {
         sopInstanceUid: any;
@@ -14,6 +15,7 @@ declare class ArrowAnnotate {
         finding: any;
         findingSites: any[];
     };
+
     static getTID300RepresentationArguments(tool: any, worldToImageCoords: any): {
         points: {
             x: any;
@@ -23,10 +25,12 @@ declare class ArrowAnnotate {
         findingSites: any;
     };
 }
+
 declare namespace ArrowAnnotate {
-    export { ARROW_ANNOTATE as toolType };
-    export { ARROW_ANNOTATE as utilityToolType };
-    export { TID300Point as TID300Representation };
+    export {ARROW_ANNOTATE as toolType};
+    export {ARROW_ANNOTATE as utilityToolType};
+    export {TID300Point as TID300Representation};
+
     export function isValidCornerstoneTrackingIdentifier(TrackingIdentifier: any): boolean;
 }
 declare const ARROW_ANNOTATE: "ArrowAnnotate";

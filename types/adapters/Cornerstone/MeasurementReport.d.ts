@@ -15,7 +15,9 @@ declare class MeasurementReport {
         ReferencedSOPInstanceUID: any;
         ReferencedFrameNumber: any;
     };
+
     static generateReport(toolState: any, metadataProvider: any, options: any): StructuredReport;
+
     /**
      * Generate Cornerstone tool state from dataset
      * @param {object} dataset dataset
@@ -26,12 +28,14 @@ declare class MeasurementReport {
     static generateToolState(dataset: object, hooks?: {
         getToolClass: Function;
     }): {};
+
     static registerTool(toolClass: any): void;
 }
+
 declare namespace MeasurementReport {
     let MEASUREMENT_BY_TOOLTYPE: {};
     let CORNERSTONE_TOOL_CLASSES_BY_UTILITY_TYPE: {};
     let CORNERSTONE_TOOL_CLASSES_BY_TOOL_TYPE: {};
 }
 export default MeasurementReport;
-import { StructuredReport } from "../../derivations";
+import {StructuredReport} from "../../derivations";

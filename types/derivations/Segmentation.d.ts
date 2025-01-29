@@ -2,6 +2,7 @@ export default class Segmentation extends DerivedPixels {
     constructor(datasets: any, options?: {
         includeSliceSpacing: boolean;
     });
+
     /**
      * setNumberOfFrames - Sets the number of frames of the segmentation object
      * and allocates (non-bitpacked) memory for the PixelData for constuction.
@@ -9,6 +10,7 @@ export default class Segmentation extends DerivedPixels {
      * @param  {type} NumberOfFrames The number of segmentation frames.
      */
     setNumberOfFrames(NumberOfFrames: type): void;
+
     /**
      * bitPackPixelData - Bitpacks the pixeldata, should be called after all
      * segments are addded.
@@ -16,7 +18,9 @@ export default class Segmentation extends DerivedPixels {
      * @returns {type}  description
      */
     bitPackPixelData(): type;
+
     isBitpacked: boolean;
+
     /**
      * addSegmentFromLabelmap - Adds a segment to the dataset,
      * where the labelmaps are a set of 2D labelmaps, from which to extract the binary maps.
@@ -30,8 +34,11 @@ export default class Segmentation extends DerivedPixels {
      *
      */
     addSegmentFromLabelmap(Segment: type, labelmaps: Uint8Array[], segmentIndexInLabelmap: number, referencedFrameNumbers: number[]): void;
+
     _addSegmentPixelDataFromLabelmaps(labelmaps: any, segmentIndex: any): void;
+
     _getOccupiedValue(): 1 | 255;
+
     /**
      * addSegment - Adds a segment to the dataset.
      *
@@ -43,8 +50,11 @@ export default class Segmentation extends DerivedPixels {
      *
      */
     addSegment(Segment: type, pixelData: Uint8Array, referencedFrameNumbers: number[]): void;
+
     _addSegmentPixelData(pixelData: any): void;
+
     _addPerFrameFunctionalGroups(ReferencedSegmentNumber: any, referencedFrameNumbers: any): void;
+
     _addSegmentMetadata(Segment: any): any;
 }
 import DerivedPixels from "./DerivedPixels";

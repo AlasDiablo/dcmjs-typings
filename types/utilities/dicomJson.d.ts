@@ -1,15 +1,17 @@
 export default dicomJson;
 declare namespace dicomJson {
-    export { pnObjectToString };
-    export { pnStringToObject as pnConvertToJsonObject };
-    export { pnAddValueAccessors };
+    export {pnObjectToString};
+    export {pnStringToObject as pnConvertToJsonObject};
+    export {pnAddValueAccessors};
 }
+
 /**
  * Returns the dicom part10 equivalent string for a given json object.
  * @param {object | string} value
  * @returns {string} dicom part10 equivalent string
  */
 declare function pnObjectToString(value: object | string): string;
+
 /**
  * Converts a PN string to the dicom+json equivalent, or returns the
  * original object
@@ -18,6 +20,7 @@ declare function pnObjectToString(value: object | string): string;
  * @returns {object} dicom+json representation of PersonName value, or the same object.
  */
 declare function pnStringToObject(value: string | object, multiple?: bool): object;
+
 /**
  * Overrides toJSON and toString to ensure JSON.stringify always returns
  * a valid dicom+json object, even when given a string such as "Doe^John".

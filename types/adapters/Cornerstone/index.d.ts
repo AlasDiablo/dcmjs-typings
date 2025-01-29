@@ -1,16 +1,16 @@
 export default Cornerstone;
 declare namespace Cornerstone {
-    export { Length };
-    export { FreehandRoi };
-    export { Bidirectional };
-    export { EllipticalRoi };
-    export { CircleRoi };
-    export { ArrowAnnotate };
-    export { MeasurementReport };
-    export { Segmentation };
-    export { CobbAngle };
-    export { Angle };
-    export { RectangleRoi };
+    export {Length};
+    export {FreehandRoi};
+    export {Bidirectional};
+    export {EllipticalRoi};
+    export {CircleRoi};
+    export {ArrowAnnotate};
+    export {MeasurementReport};
+    export {Segmentation};
+    export {CobbAngle};
+    export {Angle};
+    export {RectangleRoi};
 }
 import Length from "./Length";
 import FreehandRoi from "./FreehandRoi";

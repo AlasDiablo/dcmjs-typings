@@ -1,5 +1,6 @@
 declare class MeasurementReport {
     static getCornerstoneLabelFromDefaultState(defaultState: any): any;
+
     static generateDatasetMeta(): {
         FileMetaInformationVersion: {
             Value: ArrayBuffer[];
@@ -18,6 +19,7 @@ declare class MeasurementReport {
             vr: string;
         };
     };
+
     static generateDerivationSourceDataset(StudyInstanceUID: any, SeriesInstanceUID: any): {
         StudyInstanceUID: any;
         SeriesInstanceUID: any;
@@ -43,6 +45,7 @@ declare class MeasurementReport {
             PixelData: string;
         };
     };
+
     static getSetupMeasurementData(MeasurementGroup: any, sopInstanceUIDToImageIdMap: any, metadata: any, toolType: any): {
         defaultState: {
             sopInstanceUid: any;
@@ -64,7 +67,9 @@ declare class MeasurementReport {
         ReferencedSOPInstanceUID: any;
         ReferencedFrameNumber: any;
     };
+
     static generateReport(toolState: any, metadataProvider: any, worldToImageCoords: any, options: any): StructuredReport;
+
     /**
      * Generate Cornerstone tool state from dataset
      * @param {object} dataset dataset
@@ -75,12 +80,14 @@ declare class MeasurementReport {
     static generateToolState(dataset: object, sopInstanceUIDToImageIdMap: any, imageToWorldCoords: any, metadata: any, hooks?: {
         getToolClass: Function;
     }): {};
+
     static registerTool(toolClass: any): void;
 }
+
 declare namespace MeasurementReport {
     let MEASUREMENT_BY_TOOLTYPE: {};
     let CORNERSTONE_TOOL_CLASSES_BY_UTILITY_TYPE: {};
     let CORNERSTONE_TOOL_CLASSES_BY_TOOL_TYPE: {};
 }
 export default MeasurementReport;
-import { StructuredReport } from "../../derivations";
+import {StructuredReport} from "../../derivations";

@@ -1,4 +1,5 @@
 export default RectangleRoi;
+
 declare class RectangleRoi {
     static getMeasurementData(MeasurementGroup: any): {
         toolType: string;
@@ -26,6 +27,7 @@ declare class RectangleRoi {
         finding: any;
         findingSites: any[];
     };
+
     static getTID300RepresentationArguments(tool: any): {
         points: any[];
         area: any;
@@ -35,10 +37,12 @@ declare class RectangleRoi {
         findingSites: any;
     };
 }
+
 declare namespace RectangleRoi {
     export let toolType: string;
     export let utilityToolType: string;
-    export { TID300Polyline as TID300Representation };
+    export {TID300Polyline as TID300Representation};
+
     export function isValidCornerstoneTrackingIdentifier(TrackingIdentifier: any): boolean;
 }
 import TID300Polyline from "../../utilities/TID300/Polyline";

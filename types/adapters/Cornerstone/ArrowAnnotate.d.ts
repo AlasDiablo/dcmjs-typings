@@ -1,4 +1,5 @@
 export default ArrowAnnotate;
+
 declare class ArrowAnnotate {
     static getMeasurementData(MeasurementGroup: any): {
         toolType: string;
@@ -33,16 +34,19 @@ declare class ArrowAnnotate {
         finding: any;
         findingSites: any[];
     };
+
     static getTID300RepresentationArguments(tool: any): {
         points: any[];
         trackingIdentifierTextValue: string;
         findingSites: any;
     };
 }
+
 declare namespace ArrowAnnotate {
-    export { ARROW_ANNOTATE as toolType };
-    export { ARROW_ANNOTATE as utilityToolType };
-    export { TID300Point as TID300Representation };
+    export {ARROW_ANNOTATE as toolType};
+    export {ARROW_ANNOTATE as utilityToolType};
+    export {TID300Point as TID300Representation};
+
     export function isValidCornerstoneTrackingIdentifier(TrackingIdentifier: any): boolean;
 }
 declare const ARROW_ANNOTATE: "ArrowAnnotate";

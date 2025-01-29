@@ -1,4 +1,5 @@
 export default PlanarFreehandROI;
+
 declare class PlanarFreehandROI {
     static getMeasurementData(MeasurementGroup: any, sopInstanceUIDToImageIdMap: any, imageToWorldCoords: any, metadata: any): {
         sopInstanceUid: any;
@@ -14,6 +15,7 @@ declare class PlanarFreehandROI {
         finding: any;
         findingSites: any[];
     };
+
     static getTID300RepresentationArguments(tool: any, worldToImageCoords: any): {
         points: any;
         area: number;
@@ -23,10 +25,12 @@ declare class PlanarFreehandROI {
         findingSites: any;
     };
 }
+
 declare namespace PlanarFreehandROI {
-    export { PLANARFREEHANDROI as toolType };
-    export { PLANARFREEHANDROI as utilityToolType };
-    export { TID300Polyline as TID300Representation };
+    export {PLANARFREEHANDROI as toolType};
+    export {PLANARFREEHANDROI as utilityToolType};
+    export {TID300Polyline as TID300Representation};
+
     export function isValidCornerstoneTrackingIdentifier(TrackingIdentifier: any): boolean;
 }
 declare const PLANARFREEHANDROI: "PlanarFreehandROI";

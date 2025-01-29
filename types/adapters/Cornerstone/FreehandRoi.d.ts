@@ -1,4 +1,5 @@
 export default FreehandRoi;
+
 declare class FreehandRoi {
     static getMeasurementData(MeasurementGroup: any): {
         toolType: string;
@@ -24,6 +25,7 @@ declare class FreehandRoi {
         finding: any;
         findingSites: any[];
     };
+
     static getTID300RepresentationArguments(tool: any): {
         points: any;
         area: any;
@@ -33,10 +35,12 @@ declare class FreehandRoi {
         findingSites: any;
     };
 }
+
 declare namespace FreehandRoi {
     export let toolType: string;
     export let utilityToolType: string;
-    export { TID300Polyline as TID300Representation };
+    export {TID300Polyline as TID300Representation};
+
     export function isValidCornerstoneTrackingIdentifier(TrackingIdentifier: any): boolean;
 }
 import TID300Polyline from "../../utilities/TID300/Polyline";

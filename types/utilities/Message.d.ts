@@ -10,15 +10,16 @@ export type MultipartEncodedData = {
     boundary: string;
 };
 declare namespace message {
-    export { containsToken };
-    export { findToken };
-    export { identifyBoundary };
-    export { uint8ArrayToString };
-    export { stringToUint8Array };
-    export { multipartEncode };
-    export { multipartDecode };
-    export { guid };
+    export {containsToken};
+    export {findToken};
+    export {identifyBoundary};
+    export {uint8ArrayToString};
+    export {stringToUint8Array};
+    export {multipartEncode};
+    export {multipartDecode};
+    export {guid};
 }
+
 /**
  * Checks whether a given token is contained by a message at a given offset.
  * @param {Uint8Array} message message content
@@ -27,6 +28,7 @@ declare namespace message {
  * @returns {Boolean} whether message contains token at offset
  */
 declare function containsToken(message: Uint8Array, token: Uint8Array, offset?: number): boolean;
+
 /**
  * Finds a given token in a message at a given offset.
  * @param {Uint8Array} message message content
@@ -35,12 +37,14 @@ declare function containsToken(message: Uint8Array, token: Uint8Array, offset?: 
  * @returns {Boolean} whether message has a part at given offset or not
  */
 declare function findToken(message: Uint8Array, token: Uint8Array, offset: number, maxSearchLength: any): boolean;
+
 /**
  * Identifies the boundary in a multipart/related message header.
  * @param {String} header message header
  * @returns {String} boundary
  */
 declare function identifyBoundary(header: string): string;
+
 /**
  * Converts a Uint8Array to a String.
  * @param {Uint8Array} array that should be converted
@@ -49,12 +53,14 @@ declare function identifyBoundary(header: string): string;
  * @returns {String}
  */
 declare function uint8ArrayToString(arr: any, offset: number, limit: number): string;
+
 /**
  * Converts a String to a Uint8Array.
  * @param {String} str string that should be converted
  * @returns {Uint8Array}
  */
 declare function stringToUint8Array(str: string): Uint8Array;
+
 /**
  * @typedef {Object} MultipartEncodedData
  * @property {ArrayBuffer} data The encoded Multipart Data
@@ -69,6 +75,7 @@ declare function stringToUint8Array(str: string): Uint8Array;
  * @return {MultipartEncodedData} The Multipart encoded data returned as an Object. This contains both the data itself, and the boundary string used to divide it.
  */
 declare function multipartEncode(datasets: ArrayBuffer[], boundary?: string, contentType?: string): MultipartEncodedData;
+
 /**
  * Decode a Multipart encoded ArrayBuffer and return the components as an Array.
  *
@@ -76,6 +83,7 @@ declare function multipartEncode(datasets: ArrayBuffer[], boundary?: string, con
  * @returns {Array} The content
  */
 declare function multipartDecode(response: ArrayBuffer): any[];
+
 /**
  * Create a random GUID
  *

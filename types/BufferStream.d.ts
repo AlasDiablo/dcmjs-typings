@@ -1,78 +1,137 @@
-export class ReadBufferStream extends BufferStream {
-    constructor(buffer: any, littleEndian: any, options?: {
-        start: any;
-        stop: any;
-        noCopy: boolean;
-    });
-    offset: any;
-    size: any;
+
+interface ReadBufferStreamOptions {
+    start: null | number;
+    stop: null | number;
     noCopy: boolean;
-    startOffset: any;
-    endOffset: any;
+}
+
+export class ReadBufferStream extends BufferStream {
+    constructor(buffer: ArrayBuffer, littleEndian: boolean, options?: ReadBufferStreamOptions);
+
+    offset: number;
+    size: number;
+    noCopy: boolean;
+    startOffset: number;
+    endOffset: number;
     decoder: TextDecoder;
-    setDecoder(decoder: any): void;
+
+    setDecoder(decoder: TextDecoder): void;
+
     reset(): this;
-    writeUint8(value: any): void;
-    writeUint8Repeat(value: any, count: any): void;
-    writeInt8(value: any): void;
-    writeUint16(value: any): void;
-    writeTwoUint16s(value: any): void;
-    writeInt16(value: any): void;
-    writeUint32(value: any): void;
-    writeInt32(value: any): void;
-    writeFloat(value: any): void;
-    writeDouble(value: any): void;
-    writeAsciiString(value: any): void;
-    writeUTF8String(value: any): void;
-    concat(stream: any): void;
+
+    writeUint8(value: never): never;
+
+    writeUint8Repeat(value: never, count: never): never;
+
+    writeInt8(value: never): never;
+
+    writeUint16(value: never): never;
+
+    writeTwoUint16s(value: never): never;
+
+    writeInt16(value: never): never;
+
+    writeUint32(value: never): never;
+
+    writeInt32(value: never): never;
+
+    writeFloat(value: never): never;
+
+    writeDouble(value: never): never;
+
+    writeAsciiString(value: never): never;
+
+    writeUTF8String(value: never): never;
+
+    concat(stream: never): never;
 }
+
 export class DeflatedReadBufferStream extends ReadBufferStream {
-    constructor(stream: any, options: any);
+    constructor(stream: ReadBufferStream, options: ReadBufferStreamOptions);
 }
+
 export class WriteBufferStream extends BufferStream {
 }
+
 declare class BufferStream {
-    constructor(sizeOrBuffer: any, littleEndian: any);
-    buffer: any;
-    view: DataView<any>;
+    constructor(sizeOrBuffer: number | ArrayBuffer, littleEndian?: boolean);
+
+    buffer: ArrayBuffer;
+    view: DataView<ArrayBuffer>;
     offset: number;
-    isLittleEndian: any;
+    isLittleEndian: boolean;
     size: number;
     encoder: TextEncoder;
-    setEndian(isLittle: any): void;
-    writeUint8(value: any): any;
-    writeUint8Repeat(value: any, count: any): any;
-    writeInt8(value: any): any;
-    writeUint16(value: any): any;
-    writeTwoUint16s(value: any): any;
-    writeInt16(value: any): any;
-    writeUint32(value: any): any;
-    writeInt32(value: any): any;
-    writeFloat(value: any): any;
-    writeDouble(value: any): any;
-    writeUTF8String(value: any): any;
-    writeAsciiString(value: any): any;
+
+    setEndian(isLittle: boolean): void;
+
+    writeUint8(value: number): number;
+
+    writeUint8Repeat(value: number, count: number): number;
+
+    writeInt8(value: number): number;
+
+    writeUint16(value: number): number;
+
+    writeTwoUint16s(value: number): number;
+
+    writeInt16(value: number): number;
+
+    writeUint32(value: number): number;
+
+    writeInt32(value: number): number;
+
+    writeFloat(value: number): number;
+
+    writeDouble(value: number): number;
+
+    writeUTF8String(value: string): number;
+
+    writeAsciiString(value: string): number;
+
     readUint32(): number;
+
     readUint16(): number;
+
     readUint8(): number;
-    peekUint8(offset: any): number;
-    readUint8Array(length: any): Uint8Array<any>;
-    readUint16Array(length: any): Uint16Array<ArrayBuffer>;
+
+    peekUint8(offset: number): number;
+
+    readUint8Array(length: number): Uint8Array<ArrayBuffer>;
+
+    readUint16Array(length: number): Uint16Array<ArrayBuffer>;
+
     readInt16(): number;
+
     readInt32(): number;
+
     readFloat(): number;
+
     readDouble(): number;
-    readAsciiString(length: any): string;
+
+    readAsciiString(length: number): string;
+
     readVR(): string;
-    readEncodedString(length: any): any;
-    readHex(length: any): string;
-    checkSize(step: any): void;
-    concat(stream: any): any;
-    increment(step: any): any;
-    getBuffer(start: any, end: any): any;
-    more(length: any): ReadBufferStream;
+
+    readEncodedString(length: number): string;
+
+    readHex(length: number): string;
+
+    checkSize(step: number): void;
+
+    concat(stream: BufferStream): number;
+
+    increment(step: number): number;
+
+    getBuffer(start: number, end: number): ArrayBuffer;
+
+    more(length: number): ReadBufferStream;
+
     reset(): this;
+
     end(): boolean;
+
     toEnd(): void;
 }
+
 export {};

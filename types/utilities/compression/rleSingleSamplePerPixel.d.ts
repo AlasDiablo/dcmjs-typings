@@ -7,4 +7,5 @@
  * @param {*} cols
  */
 export function encode(buffer: any, numberOfFrames: any, rows: any, cols: any): ArrayBuffer[];
+
 export function decode(rleEncodedFrames: any, rows: any, cols: any): Uint8Array<ArrayBuffer>;

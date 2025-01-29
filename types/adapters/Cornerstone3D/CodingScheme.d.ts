@@ -1,8 +1,8 @@
 export default CodingScheme;
 declare namespace CodingScheme {
-    export { CodingSchemeDesignator };
+    export {CodingSchemeDesignator};
     export namespace codeValues {
-        export { CORNERSTONEFREETEXT };
+        export {CORNERSTONEFREETEXT};
     }
 }
 declare const CodingSchemeDesignator: "CORNERSTONEJS";

@@ -1,4 +1,5 @@
 export default Bidirectional;
+
 declare class Bidirectional {
     static getMeasurementData(MeasurementGroup: any): {
         sopInstanceUid: any;
@@ -63,6 +64,7 @@ declare class Bidirectional {
         finding: any;
         findingSites: any[];
     };
+
     static getTID300RepresentationArguments(tool: any): {
         longAxis: {
             point1: any;
@@ -79,10 +81,12 @@ declare class Bidirectional {
         findingSites: any;
     };
 }
+
 declare namespace Bidirectional {
-    export { BIDIRECTIONAL as toolType };
-    export { BIDIRECTIONAL as utilityToolType };
-    export { TID300Bidirectional as TID300Representation };
+    export {BIDIRECTIONAL as toolType};
+    export {BIDIRECTIONAL as utilityToolType};
+    export {TID300Bidirectional as TID300Representation};
+
     export function isValidCornerstoneTrackingIdentifier(TrackingIdentifier: any): boolean;
 }
 declare const BIDIRECTIONAL: "Bidirectional";

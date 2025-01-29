@@ -1,7 +1,8 @@
 export namespace flipMatrix2D {
-    export { h };
-    export { v };
+    export {h};
+    export {v};
 }
+
 /**
  * flipMatrix2D.h - Flips a 2D matrix in the horizontal direction.
  *
@@ -9,6 +10,7 @@ export namespace flipMatrix2D {
  * @return {Ndarry}   The flipped matrix.
  */
 declare function h(matrix: Ndarry): Ndarry;
+
 /**
  * flipMatrix2D.h - Flips a 2D matrix in the vertical direction.
  *
@@ -16,4 +18,5 @@ declare function h(matrix: Ndarry): Ndarry;
  * @return {Ndarry}   The flipped matrix.
  */
 declare function v(matrix: Ndarry): Ndarry;
+
 export {};

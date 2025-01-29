@@ -1,14 +1,14 @@
 export default Cornerstone3D;
 declare namespace Cornerstone3D {
-    export { Length };
-    export { Bidirectional };
-    export { EllipticalROI };
-    export { ArrowAnnotate };
-    export { Probe };
-    export { PlanarFreehandROI };
-    export { MeasurementReport };
-    export { CodeScheme };
-    export { CORNERSTONE_3D_TAG };
+    export {Length};
+    export {Bidirectional};
+    export {EllipticalROI};
+    export {ArrowAnnotate};
+    export {Probe};
+    export {PlanarFreehandROI};
+    export {MeasurementReport};
+    export {CodeScheme};
+    export {CORNERSTONE_3D_TAG};
 }
 import Length from "./Length";
 import Bidirectional from "./Bidirectional";

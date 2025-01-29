@@ -11,10 +11,11 @@ export type BrushData = {
     segments: any[];
 };
 declare namespace Segmentation {
-    export { generateSegmentation };
-    export { generateToolState };
-    export { fillSegmentation };
+    export {generateSegmentation};
+    export {generateToolState};
+    export {fillSegmentation};
 }
+
 /**
  * generateSegmentation - Generates cornerstoneTools brush data, given a stack of
  * imageIds, images and the cornerstoneTools brushData.
@@ -26,6 +27,7 @@ declare namespace Segmentation {
  * @returns {Blob}
  */
 declare function generateSegmentation(images: object[], inputLabelmaps3D: any | any[], userOptions?: any): Blob;
+
 /**
  * generateToolState - Given a set of cornrstoneTools imageIds and a Segmentation buffer,
  * derive cornerstoneTools toolState and brush metadata.
@@ -43,6 +45,7 @@ declare function generateSegmentation(images: object[], inputLabelmaps3D: any | 
  *                  (available only for the overlapping case).
  */
 declare function generateToolState(imageIds: string[], arrayBuffer: ArrayBuffer, metadataProvider: any, skipOverlapping?: bool, tolerance?: number): [];
+
 /**
  * fillSegmentation - Fills a derived segmentation dataset with cornerstoneTools `LabelMap3D` data.
  *

@@ -1,9 +1,10 @@
 export default Segmentation;
 declare namespace Segmentation {
-    export { generateSegmentation };
-    export { generateToolState };
-    export { fillSegmentation };
+    export {generateSegmentation};
+    export {generateToolState};
+    export {fillSegmentation};
 }
+
 /**
  * generateSegmentation - Generates a DICOM Segmentation object given cornerstoneTools data.
  *
@@ -16,6 +17,7 @@ declare namespace Segmentation {
 declare function generateSegmentation(images: object[], labelmaps3DorBrushData: any | any[], options?: {
     includeSliceSpacing: boolean;
 }, cornerstoneToolsVersion?: number): any;
+
 /**
  * generateToolState - Given a set of cornrstoneTools imageIds and a Segmentation buffer,
  * derive cornerstoneTools toolState and brush metadata.
@@ -31,6 +33,7 @@ declare function generateSegmentation(images: object[], labelmaps3DorBrushData: 
  *                    segment metadata can be derived.
  */
 declare function generateToolState(imageIds: string[], arrayBuffer: ArrayBuffer, metadataProvider: any, skipOverlapping?: bool, tolerance?: number, cornerstoneToolsVersion?: number): any;
+
 /**
  * fillSegmentation - Fills a derived segmentation dataset with cornerstoneTools `LabelMap3D` data.
  *

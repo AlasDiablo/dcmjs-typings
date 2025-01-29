@@ -1,4 +1,5 @@
 export default CircleRoi;
+
 declare class CircleRoi {
     /** Gets the measurement data for cornerstone, given DICOM SR measurement data. */
     static getMeasurementData(MeasurementGroup: any): {
@@ -39,6 +40,7 @@ declare class CircleRoi {
         finding: any;
         findingSites: any[];
     };
+
     /**
      * Gets the TID 300 representation of a circle, given the cornerstone representation.
      *
@@ -57,10 +59,12 @@ declare class CircleRoi {
         findingSites: any;
     };
 }
+
 declare namespace CircleRoi {
-    export { CIRCLEROI as toolType };
-    export { CIRCLEROI as utilityToolType };
-    export { TID300Circle as TID300Representation };
+    export {CIRCLEROI as toolType};
+    export {CIRCLEROI as utilityToolType};
+    export {TID300Circle as TID300Representation};
+
     export function isValidCornerstoneTrackingIdentifier(TrackingIdentifier: any): boolean;
 }
 declare const CIRCLEROI: "CircleRoi";

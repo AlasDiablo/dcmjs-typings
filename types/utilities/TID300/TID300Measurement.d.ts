@@ -1,8 +1,11 @@
 export default class TID300Measurement {
     constructor(props: any);
+
     ReferencedSOPSequence: any;
     props: any;
+
     getMeasurement(contentSequenceEntries: any): any[];
+
     getTrackingGroups(): ({
         RelationshipType: string;
         ValueType: string;
@@ -24,11 +27,13 @@ export default class TID300Measurement {
         UID: string;
         TextValue?: undefined;
     })[];
+
     getFindingGroup(): {
         RelationshipType: string;
         ValueType: string;
         ConceptNameCodeSequence: any;
         ConceptCodeSequence: any;
     }[];
+
     getFindingSiteGroups(): any;
 }

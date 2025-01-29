@@ -1,11 +1,13 @@
 export default unit2CodingValue;
+
 /** Converts the given unit into the
  * specified coding values.
  * Has .measurementMap on the function specifying global units for measurements.
  */
 declare function unit2CodingValue(units: any): any;
+
 declare namespace unit2CodingValue {
-    export { measurementMap };
+    export {measurementMap};
 }
 declare const measurementMap: {
     px: {

@@ -1,4 +1,5 @@
 export default EllipticalROI;
+
 declare class EllipticalROI {
     static getMeasurementData(MeasurementGroup: any, sopInstanceUIDToImageIdMap: any, imageToWorldCoords: any, metadata: any): {
         sopInstanceUid: any;
@@ -14,6 +15,7 @@ declare class EllipticalROI {
         finding: any;
         findingSites: any[];
     };
+
     static getTID300RepresentationArguments(tool: any, worldToImageCoords: any): {
         area: any;
         points: {
@@ -25,10 +27,12 @@ declare class EllipticalROI {
         findingSites: any;
     };
 }
+
 declare namespace EllipticalROI {
-    export { ELLIPTICALROI as toolType };
-    export { ELLIPTICALROI as utilityToolType };
-    export { TID300Ellipse as TID300Representation };
+    export {ELLIPTICALROI as toolType};
+    export {ELLIPTICALROI as utilityToolType};
+    export {TID300Ellipse as TID300Representation};
+
     export function isValidCornerstoneTrackingIdentifier(TrackingIdentifier: any): boolean;
 }
 declare const ELLIPTICALROI: "EllipticalROI";
