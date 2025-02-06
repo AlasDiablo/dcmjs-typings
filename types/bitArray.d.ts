@@ -5,8 +5,8 @@ export namespace BitArray {
     export {unpack};
 }
 
-declare function getBytesForBinaryFrame(numPixels: any): number;
+declare function getBytesForBinaryFrame(numPixels: number): number;
 
-declare function pack(pixelData: any): Uint8Array<ArrayBuffer>;
+declare function pack(pixelData: Uint8Array<ArrayBuffer>): Uint8Array<ArrayBuffer>;
 
-declare function unpack(bitPixelArray: any): Uint8Array<ArrayBuffer>;
+declare function unpack(bitPixelArray: Uint8Array<ArrayBuffer>): Uint8Array<ArrayBuffer>;

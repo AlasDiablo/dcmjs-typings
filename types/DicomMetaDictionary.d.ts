@@ -1,9 +1,7 @@
 import dictionary, {DictionaryEntry} from "./dictionary";
+import {Dict} from "./DicomDict";
 
 /* Todo found the type of the 'unknown' place holder */
-
-// Todo create a correct type of the dataset
-type Dataset = Record<string, unknown>;
 
 export class DicomMetaDictionary {
     static punctuateTag(rawTag: string): string;
@@ -14,9 +12,9 @@ export class DicomMetaDictionary {
 
     static tagAsIntegerFromName(name: string): number | undefined;
 
-    static cleanDataset(dataset: Dataset): Dataset;
+    static cleanDataset(dataset: Dict): Dict;
 
-    static namifyDataset(dataset: Dataset): Dataset;
+    static namifyDataset(dataset: Dict): Dict;
 
     /** converts from DICOM JSON Model dataset to a natural dataset
      * - sequences become lists
@@ -25,11 +23,11 @@ export class DicomMetaDictionary {
      *     proxy for the child values, see addAccessors for examples
      * - object member names are dictionary, not group/element tag
      */
-    static naturalizeDataset(dataset: Dataset): unknown;
+    static naturalizeDataset(dataset: Dict): unknown;
 
     static denaturalizeValue(naturalValue: unknown | unknown[]): string[];
 
-    static denaturalizeDataset(dataset: Dataset, nameMap?: Record<string, DictionaryEntry>): Dataset;
+    static denaturalizeDataset(dataset: Dict, nameMap?: Record<string, DictionaryEntry>): Dict;
 
     static uid(): string;
 

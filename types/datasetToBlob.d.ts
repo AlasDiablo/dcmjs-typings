@@ -1,7 +1,7 @@
-export function datasetToBlob(dataset: any): Blob;
+export function datasetToBlob(dataset: Dict): Blob;
 
-export function datasetToBuffer(dataset: any): Buffer;
+export function datasetToBuffer(dataset: Dict): Buffer;
 
-export function datasetToDict(dataset: any): DicomDict;
+export function datasetToDict(dataset: Dict): DicomDict;
 
-import {DicomDict} from "./DicomDict";
+import {DicomDict, Dict} from "./DicomDict";

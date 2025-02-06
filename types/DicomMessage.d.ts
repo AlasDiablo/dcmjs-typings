@@ -1,5 +1,5 @@
 import {ReadBufferStream} from "./BufferStream";
-import {DicomDict} from "./DicomDict";
+import {DicomDict, Dict} from "./DicomDict";
 
 // eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export class DicomMessage {
@@ -9,7 +9,7 @@ export class DicomMessage {
         ignoreErrors: boolean,
         untilTag?: string | null,
         includeUntilTagValue?: boolean
-    ): DicomDict["dict"];
+    ): Dict;
 
     static readTag(
         bufferStream: ReadBufferStream,
@@ -26,7 +26,7 @@ export class DicomMessage {
             untilTag: string | null;
             includeUntilTagValue: boolean;
         }
-    ): DicomDict["dict"];
+    ): Dict;
 
     static _normalizeSyntax(syntax: string): string;
 
