@@ -1,8 +1,20 @@
 import {DicomMessage} from "./DicomMessage";
+import {VRType} from "./ValueRepresentation";
+
+export interface PersonValue {
+    Alphabetic?: string;
+    Ideographic?: string;
+    Phonetic?: string;
+}
+
+type DictSubDictEntry = Record<string, DictEntry>;
+
+export type DictEntryValue = object | string | number | DictSubDictEntry | PersonValue;
 
 export interface DictEntry {
-    Value: unknown;
+    Value: DictEntryValue[];
     _rawValue: unknown;
+    vr: VRType;
 }
 
 export type Dict = Record<string, DictEntry>;

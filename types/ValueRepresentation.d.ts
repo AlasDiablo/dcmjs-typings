@@ -1,6 +1,7 @@
 import {DicomMessage} from "./DicomMessage";
 import {Tag} from "./Tag";
 import {ReadBufferStream} from "./BufferStream";
+import {PersonValue} from './DicomDict';
 
 export type VRType = 'AE' |
     'AS' |
@@ -46,13 +47,42 @@ export class ValueRepresentation {
      * @param {any} tag object to add accessors to
      * @returns {any} either the same object if no accessor needed, or a Proxy
      */
-    static addTagAccessors(tag: any): any;
+    static addTagAccessors<T>(tag: T): T;
 
-    static hasValueAccessors(type: any): boolean;
+    static hasValueAccessors(type: unknown): boolean;
 
-    static createByTypeString(type: any): any;
+    static createByTypeString(type: "AE"): ApplicationEntity;
+    static createByTypeString(type: "AS"): AgeString;
+    static createByTypeString(type: "AT"): AttributeTag;
+    static createByTypeString(type: "CS"): CodeString;
+    static createByTypeString(type: "DA"): DateValue;
+    static createByTypeString(type: "DS"): DecimalString;
+    static createByTypeString(type: "DT"): DateTime;
+    static createByTypeString(type: "FL"): FloatingPointSingle;
+    static createByTypeString(type: "FD"): FloatingPointDouble;
+    static createByTypeString(type: "IS"): IntegerString;
+    static createByTypeString(type: "LO"): LongString;
+    static createByTypeString(type: "LT"): LongText;
+    static createByTypeString(type: "OB"): OtherByteString;
+    static createByTypeString(type: "OD"): OtherDoubleString;
+    static createByTypeString(type: "OF"): OtherFloatString;
+    static createByTypeString(type: "OW"): OtherWordString;
+    static createByTypeString(type: "PN"): PersonName;
+    static createByTypeString(type: "SH"): ShortString;
+    static createByTypeString(type: "SL"): SignedLong;
+    static createByTypeString(type: "SQ"): SequenceOfItems;
+    static createByTypeString(type: "SS"): SignedShort;
+    static createByTypeString(type: "ST"): ShortText;
+    static createByTypeString(type: "TM"): TimeValue;
+    static createByTypeString(type: "UC"): UnlimitedCharacters;
+    static createByTypeString(type: "UI"): UniqueIdentifier;
+    static createByTypeString(type: "UL"): UnsignedLong;
+    static createByTypeString(type: "UN"): UnknownValue;
+    static createByTypeString(type: "UR"): UniversalResource;
+    static createByTypeString(type: "US"): UnsignedShort;
+    static createByTypeString(type: "UT"): UnlimitedText;
 
-    static parseUnknownVr(type: any): ParsedUnknownValue;
+    static parseUnknownVr(type: unknown): ParsedUnknownValue;
 
     constructor(type: VRType);
 
@@ -98,7 +128,7 @@ export class ValueRepresentation {
         forceStoreRaw: boolean;
     }): any;
 
-    applyFormatting(value: any): any;
+    applyFormatting<T>(value: T): T;
 
     readBytes(stream: ReadBufferStream, length: any): any;
 
@@ -127,4 +157,108 @@ declare class BinaryRepresentation extends ValueRepresentation {
     readBytes(stream: ReadBufferStream, length: any): Uint8Array[];
 }
 
-export {};
+class AsciiStringRepresentation extends ValueRepresentation {}
+class EncodedStringRepresentation extends ValueRepresentation {}
+class NumericStringRepresentation extends AsciiStringRepresentation {}
+
+// AE
+class ApplicationEntity extends AsciiStringRepresentation {
+    applyFormatting(value: string): string;
+}
+// AS
+class AgeString extends AsciiStringRepresentation {}
+// AT
+class AttributeTag extends AsciiStringRepresentation {}
+// CS
+class CodeString extends AsciiStringRepresentation {
+    applyFormatting(value: string): string;
+    applyFormatting(value: string[]): string[];
+    applyFormatting(value: string | string[]): string |string[];
+}
+// DA
+class DateValue extends AsciiStringRepresentation {}
+// DS
+class DecimalString extends NumericStringRepresentation {
+    applyFormatting(value: string): number | null;
+    applyFormatting(value: string[]): (number | null)[];
+    applyFormatting(value: string | string[]): (number | null) | (number | null)[];
+}
+// DT
+class DateTime extends AsciiStringRepresentation {}
+// FL
+class FloatingPointSingle extends ValueRepresentation {
+    applyFormatting(value: string): number;
+}
+// FD
+class FloatingPointDouble extends ValueRepresentation {
+    applyFormatting(value: string): number;
+}
+// IS
+class IntegerString extends NumericStringRepresentation {
+    applyFormatting(value: string): number | null;
+    applyFormatting(value: string[]): (number | null)[];
+    applyFormatting(value: string | string[]): (number | null) | (number | null)[];
+}
+// LO
+class LongString extends EncodedStringRepresentation {
+    applyFormatting(value: string): string;
+}
+// LT
+class LongText extends EncodedStringRepresentation {
+    applyFormatting(value: string): string;
+}
+// OB
+class OtherByteString extends BinaryRepresentation {}
+// OD
+class OtherDoubleString extends BinaryRepresentation {}
+// OF
+class OtherFloatString extends BinaryRepresentation {}
+// OW
+class OtherWordString extends BinaryRepresentation {}
+// PN
+class PersonName extends EncodedStringRepresentation {
+    applyFormatting(value: string | PersonValue): PersonValue;
+    applyFormatting(value: string[] | PersonValue[]): PersonValue[];
+    applyFormatting(value: string | string[] | PersonValue | PersonValue[]): PersonValue | PersonValue[];
+}
+// SH
+class ShortString extends EncodedStringRepresentation {
+    applyFormatting(value: string): string;
+}
+// SL
+class SignedLong extends ValueRepresentation {}
+// SQ
+class SequenceOfItems extends ValueRepresentation {}
+// SS
+class SignedShort extends ValueRepresentation {}
+// ST
+class ShortText extends EncodedStringRepresentation {
+    applyFormatting(value: string): string;
+}
+// TM
+class TimeValue extends AsciiStringRepresentation {
+    applyFormatting(value: string): string;
+}
+// UC
+class UnlimitedCharacters extends EncodedStringRepresentation {
+    applyFormatting(value: string): string;
+}
+// UI
+class UniqueIdentifier extends AsciiStringRepresentation {
+    applyFormatting(value: string): string;
+    applyFormatting(value: string[]): string[];
+    applyFormatting(value: string | string[]): string | string[];
+}
+// UL
+class UnsignedLong extends ValueRepresentation {}
+// UN
+class UnknownValue extends BinaryRepresentation {}
+// UR
+class UniversalResource extends AsciiStringRepresentation {}
+// US
+class UnsignedShort extends ValueRepresentation {}
+// UT
+class UnlimitedText extends EncodedStringRepresentation {
+    applyFormatting(value: string): string;
+}
+
