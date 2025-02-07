@@ -1,10 +1,10 @@
-import dictionary, {DictionaryEntry} from "./dictionary";
+import dictionary, {DictionaryEntry, DictionaryKeys} from "./dictionary";
 import {Dict} from "./DicomDict";
 
 /* Todo found the type of the 'unknown' place holder */
 
 export class DicomMetaDictionary {
-    static punctuateTag(rawTag: string): string;
+    static punctuateTag(rawTag: string): DictionaryKeys;
 
     static unpunctuateTag(tag: string): string;
 
@@ -23,11 +23,11 @@ export class DicomMetaDictionary {
      *     proxy for the child values, see addAccessors for examples
      * - object member names are dictionary, not group/element tag
      */
-    static naturalizeDataset(dataset: Dict): unknown;
+    static naturalizeDataset(dataset: Dict): Record<string, unknown>;
 
     static denaturalizeValue(naturalValue: unknown | unknown[]): string[];
 
-    static denaturalizeDataset(dataset: Dict, nameMap?: Record<string, DictionaryEntry>): Dict;
+    static denaturalizeDataset(dataset: Record<string, unknown>, nameMap?: Record<string, DictionaryEntry>): Dict;
 
     static uid(): string;
 

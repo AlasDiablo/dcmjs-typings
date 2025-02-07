@@ -8016,3 +8016,5 @@ declare const dictionary: {
     '(7ff1,"TOSHIBA_MEC_CT_1.0",0c)': DictionaryEntry;
     '(7ff1,"TOSHIBA_MEC_CT_1.0",0d)': DictionaryEntry;
 };
+
+export type DictionaryKeys = keyof (typeof dictionary);
